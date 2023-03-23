@@ -1,10 +1,11 @@
 ---
 export interface Props {
 	title: string;
+    description?: string;
 	header?: boolean;
 }
 
-const { title, header = true } = Astro.props;
+const { title, header = true, description } = Astro.props;
 
 import Header from '../components/Header.astro';
 ---
@@ -16,6 +17,9 @@ import Header from '../components/Header.astro';
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+        {description && 
+        <meta name="description" content={description} />
+        }
 		<title>{title}</title>
 	</head>
 	<body>
@@ -25,7 +29,7 @@ import Header from '../components/Header.astro';
 </html>
 <style is:global lang="scss">
 	:root {
-		--accent: 94, 222, 159;
+		--accent: 54, 248, 127;
 		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #7762da 30%, white 60%);
 	}
 	html {

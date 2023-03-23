@@ -1,0 +1,54 @@
+---
+import { getCollection } from 'astro:content';
+import Project from '../../layouts/Project.astro';
+
+export async function getStaticPaths() {
+  const projectsCollection = await getCollection('projects');
+  return projectsCollection.map(entry => ({
+    params: { slug: entry.slug }, props: { entry },
+  }));
+}
+// 2. When it's time to render, you can get the entry directly from the prop
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+<Project
+  title={`Projects - ${entry.data.title}`}
+  description={entry.data.description}
+>
+  <main>
+    <Content />
+    {entry.data.technologies &&
+      <h2>
+        Technologies
+      </h2>
+      <ul class="technologies-list">
+        {entry.data.technologies.map(tech => (
+          <li class="technologies-list__item"> {tech} </li>
+        ))}
+      </ul>
+    }
+  </main>
+</Project>
+
+<style lang="scss">
+  main {
+    max-width: 600px;
+    margin: auto;
+    padding: 0 1.5rem;
+  }
+  .technologies-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    margin: 0;
+    padding: 0;
+
+    &__item {
+      list-style: none;
+      padding: 5px 15px;
+      border-radius: 8px;
+      background: rgba(var(--accent), 0.2);
+    }
+  }
+</style>

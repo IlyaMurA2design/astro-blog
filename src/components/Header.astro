@@ -1,0 +1,39 @@
+---
+// export interface Props {
+// 	title: string;
+// 	body: string;
+// 	href: string;
+// }
+
+// const { href, title, body } = Astro.props;
+---
+
+<header class="header">
+    <div class="container header__container">
+        <nav class="header__navigation">
+            <a class="link" href="/">About me</a>
+            <a class="link" href="/blog">My blog</a>
+        </nav>
+    </div>
+</header>
+<style lang="scss">
+    .header {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 20px 0px;
+        background: #ffffff;
+        
+        &__container {
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            padding: 0 1.5rem;
+        }
+
+        &__navigation {
+            display: flex;
+            gap: 20px;
+        }
+    }
+</style>
