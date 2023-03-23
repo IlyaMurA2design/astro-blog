@@ -2,9 +2,14 @@
 export interface Props {
 	title: string;
 	header?: boolean;
+	metaDescription?: string;
 }
 
-const { title, header = true } = Astro.props;
+const {
+	title,
+	header = true,
+	metaDescription = 'The page of my site',
+} = Astro.props;
 
 import Header from '../components/Header.astro';
 ---
@@ -17,6 +22,9 @@ import Header from '../components/Header.astro';
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="theme-color" content="#5ede9f4d" />
+		{metaDescription && 
+			<meta name="description" content={metaDescription} />
+		}
 		<title>{title}</title>
 	</head>
 	<body>
