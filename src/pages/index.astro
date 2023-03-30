@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 
 import { getCollection } from 'astro:content';
+import SkillsList from '../components/skills/SkillsList.astro';
 
 const projects = await getCollection('projects');
 ---
@@ -30,6 +31,11 @@ const projects = await getCollection('projects');
 				/>
 			))}
 		</ul>
+
+		<section>
+			<h2>My skills</h2>
+			<SkillsList />
+		</section>
 	</main>
 </Layout>
 
@@ -43,6 +49,9 @@ const projects = await getCollection('projects');
 		font-size: 3rem;
 		font-weight: 800;
 		margin: 0;
+	}
+	section {
+		margin: 3rem 0;
 	}
 	.text-gradient {
 		background-image: var(--accent-gradient);

@@ -1,0 +1,61 @@
+---
+import SkillCard from "./SkillCard.astro";
+
+const skillList = [
+  {
+    name: 'HTML',
+    level: 8,
+  },
+  {
+    name: 'CSS',
+    level: 7,
+  },
+  {
+    name: 'JS',
+    level: 6,
+  },
+  {
+    name: 'PHP',
+    level: 4,
+  },
+  {
+    name: 'Design',
+    level: 3,
+  },
+  {
+    name: 'VueJS + Vuex',
+    level: 6,
+  },
+  {
+    name: 'React JS',
+    level: 4,
+  },
+  {
+    name: 'Gatsby',
+    level: 4,
+  },
+  {
+    name: 'Astro',
+    level: 4,
+  },
+]
+---
+<ul>
+  {skillList.map(skill => (
+    <SkillCard 
+      name={skill.name}
+      level={skill.level}
+    />
+  ))}
+</ul>
+
+<style>
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+</style>
