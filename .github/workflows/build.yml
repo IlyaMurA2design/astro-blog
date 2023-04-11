@@ -35,3 +35,4 @@ jobs:
           echo Start assets building
           npm install
           npm run build
+          sleep 30
