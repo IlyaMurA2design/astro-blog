@@ -27,7 +27,7 @@ const projects = await getCollection('projects');
 					title={project.data.title}
 					body={project.data.description}
 					href={`/projects/${project.slug}`}
-					technologies={project.data.technologies}
+					badges={project.data.technologies}
 				/>
 			))}
 		</ul>

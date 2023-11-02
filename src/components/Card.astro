@@ -3,10 +3,10 @@ export interface Props {
 	title: string;
 	body: string;
 	href: string;
-	technologies: string[];
+	badges?: string[];
 }
 
-const { href, title, body, technologies = [] } = Astro.props;
+const { href, title, body, badges = [] } = Astro.props;
 ---
 
 <li class="link-card">
@@ -18,9 +18,9 @@ const { href, title, body, technologies = [] } = Astro.props;
 		<p>
 			{body}
 		</p>
-		<ul class="technologies-list">
-			{technologies.map(technology => (
-				<li class="technologies-list__item">{technology}</li>
+		<ul class="badges-list">
+			{badges.map(technology => (
+				<li class="badges-list__item">{technology}</li>
 			))}
 		</ul>
 	</a>
@@ -67,7 +67,7 @@ const { href, title, body, technologies = [] } = Astro.props;
 	.link-card:is(:hover, :focus-within) h2 {
 		color: rgb(var(--accent));
 	}
-	.technologies-list {
+	.badges-list {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 8px 12px;
