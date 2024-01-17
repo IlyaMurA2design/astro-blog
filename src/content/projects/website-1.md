@@ -1,7 +1,7 @@
 ---
-title: 'Hired'
+title: 'Website 1'
 description: 'The website on WordPress'
-href: 'https://hired.com'
+href: '#'
 
 technologies: [
     'SCSS',
@@ -12,6 +12,6 @@ technologies: [
 ]
 ---
 
-# Vettery & Hired website
+# Website 1
 
-The Hired website is build with WordPress, TailwindCSS, Webpack, 
+The website is build with WordPress, TailwindCSS, Webpack...
